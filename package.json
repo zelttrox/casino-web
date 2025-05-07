@@ -1,0 +1,23 @@
+{
+  "name": "casino-web",
+  "version": "1.0.0",
+  "description": "Node.js + React casino web app simulator using an Azure database",
+  "homepage": "https://github.com/zelttrox/casino-web#readme",
+  "bugs": {
+    "url": "https://github.com/zelttrox/casino-web/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zelttrox/casino-web.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}
