@@ -1,5 +1,6 @@
 // Import modules
 const express = require("express")
+const path = require("path")
 
 // Define server variables
 const server = express()
@@ -10,17 +11,14 @@ const port = 3000
 server.use(express.urlencoded({extended: true}))
 server.use(express.json())
 
-// Define static folder
-server.use(express.static("static"))
+// Define client as static folder
+server.use(express.static(path.join(__dirname, 'client/build')))
 
-// Root GET request handler
-server.get("/", function (request, response) {
-    // response.render("index")
-    response.send("test")
+server.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
 })
-
 
 // Start listening for connections
 server.listen(port, function () {
-    console.log("[Server]", "Server started on port", port)
+    console.log("[Server]","Server started on port", port)
 })

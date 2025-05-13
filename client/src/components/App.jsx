@@ -2,7 +2,7 @@ import './App.css'
 
 function App() {
   return (
-    <p> Casino web </p>
+    <p> Casino webbb </p>
   )
 }
 
