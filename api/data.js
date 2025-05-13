@@ -22,8 +22,7 @@ var items = []
 // Add items to the array
 items.push(new Item("Jager", 20, 15))
 items.push(new Item("Malibu", 10, 30))
-
-console.log(items)
+items.push(new Item("Vodka", 15, 20))
 
 
 // Exports

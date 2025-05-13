@@ -9,5 +9,7 @@ var content = [
     data.items
 ]
 
+console.log(content)
+
 // Exports
 module.exports = content
