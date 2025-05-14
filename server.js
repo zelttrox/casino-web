@@ -3,7 +3,7 @@ const express = require("express")
 const path = require("path")
 
 // Import scripts
-const data = require("./api")
+const data = require("./api/data")
 
 // Define server variables
 const server = express()
@@ -22,7 +22,7 @@ server.get("/", (req, res) => {
 })
 
 server.get("/api", (request, response) => {
-
+    response.json(data)
 })
 
 // Start listening for connections

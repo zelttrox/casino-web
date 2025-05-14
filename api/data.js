@@ -1,29 +1,13 @@
-// Item class
-class Item {
-    constructor(name, value, chance) {
-        this.id = name.toLowerCase().replace(/\s/g, "_")
-        this.name = name
-        this.value = value
-        this.chance = chance
-        this.icon = `./client/public/uploads/${this.id}.png`
-    }
+// Import scripts
+const data = require("./model")
+
+// Initialize API content
+var content = {
+    "credits": data.credits,
+    "jackpot": data.jackpot,
+    "bets": data.bets,
+    "items": data.items
 }
 
-// Initialize user variables
-var credits = 200
-
-// Initialize slot machine variables
-var jackpot = 0
-var bets = [100, 200, 300]
-
-// Initialize items array
-var items = []
-
-// Add items to the array
-items.push(new Item("Jager", 20, 15))
-items.push(new Item("Malibu", 10, 30))
-items.push(new Item("Vodka", 15, 20))
-
-
 // Exports
-module.exports = {credits, jackpot, bets, items}
+module.exports = content
