@@ -17,8 +17,8 @@ server.use(express.json())
 // Define client as static folder
 server.use(express.static(path.join(__dirname, "client/build")))
 
-server.get("/", (req, res) => {
-    // res.sendFile(path.join(__dirname, 'client/build', 'index.html'))
+server.get("/", (request, response) => {
+    
 })
 
 server.get("/api", (request, response) => {
