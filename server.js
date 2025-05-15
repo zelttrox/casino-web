@@ -7,7 +7,7 @@ const data = require("./api/data")
 
 // Define server variables
 const server = express()
-const port = 3000
+const port = 8080
 
 
 // Define parsing middlewares
@@ -15,10 +15,10 @@ server.use(express.urlencoded({extended: true}))
 server.use(express.json())
 
 // Define client as static folder
-server.use(express.static(path.join(__dirname, "client/build")))
+server.use(express.static(path.join(__dirname, "client/public")))
 
 server.get("/", (request, response) => {
-    
+    response.sendFile(path.join(__dirname, "client/public/index.html"))
 })
 
 server.get("/api", (request, response) => {

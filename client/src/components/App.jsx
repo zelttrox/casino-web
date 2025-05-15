@@ -3,26 +3,36 @@ import './App.css'
 // Import librairies
 import { useState, useEffect } from 'react'
 
-// Initialize hooks
-const [data, setData] = useState(0)
+
 
 function App() {
+  console.log("rendering")
 
-  async function GetAPI() {
-    try {
-      const response = await fetch('/api')
-      setData(response.json())
-    }
-    catch (error) {
-      console.error("[React]", error)
-    }
-    console.log(data)
-  }
+  // Initialize hooks
+  const [data, setData] = useState({})
+  const [loading, setLoading] = useState(true)
 
-  GetAPI()
+  useEffect( () => {
+    async function GetAPI() {
+      try {
+        const response = await fetch('/api')
+        setData(response.json())
+      }
+      catch (error) {
+        console.error("[React]", error)
+      }
+      finally {
+        setLoading(false)
+      }
+    }
+    GetAPI()
+  }, [])
+
+  console.log(data)
 
   return (
     <>
+    {console.log("heifuh")}
     <p> Casino web </p>
     <p> Credits: {data.credits} </p>
     </>
