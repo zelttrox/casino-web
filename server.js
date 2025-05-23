@@ -1,5 +1,6 @@
 // Import modules
 const express = require("express")
+const cors = require("cors")
 const path = require("path")
 
 // Import scripts
@@ -13,6 +14,12 @@ const port = 8080
 // Define parsing middlewares
 server.use(express.urlencoded({extended: true}))
 server.use(express.json())
+
+// Use CORS to allow Frontend requests
+server.use(cors({
+    origin: 'http://localhost:3000',
+    credentials: true
+}));
 
 // Define client as static folder
 server.use(express.static(path.join(__dirname, "client/public")))

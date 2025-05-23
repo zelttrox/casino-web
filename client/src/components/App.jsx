@@ -2,40 +2,26 @@
 import './App.css'
 // Import librairies
 import { useState, useEffect } from 'react'
-import axios from 'axios';
-
-const api = axios.create({
-  baseURL: 'http://localhost:3000'
-});
-
 
 function App() {
   console.log("rendering")
 
-  // Initialize hooks
-  // const [data, setData] = useState({})
-  // const [loading, setLoading] = useState(true)
+    const [data, setData] = useState('');
 
-  // useEffect( () => {
-  //   async function GetAPI() {
-  //     try {
-  //       const response = await fetch('/api')
-  //       console.log(response)
-  //       setData(response.json())
-  //     }
-  //     catch (error) {
-  //       console.error("[React]", error)
-  //     }
-  //     finally {
-  //       setLoading(false)
-  //     }
-  //   }
-  //   GetAPI()
-  // }, [])
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await fetch('/api')
+                const reiceved = await response.json()
+                setData(reiceved)
+            } catch (error) {
+                console.error('Error fetching data:', error)
+            }
+        }
 
-  const data = api.get("/api")
-
-  console.log(data)
+        fetchData()
+    }, [])
+    console.log(data.credits)
 
   return (
     <>
