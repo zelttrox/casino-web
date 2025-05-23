@@ -4,29 +4,31 @@ import './App.css'
 import { useState, useEffect } from 'react'
 
 function App() {
-  console.log("rendering")
-
     const [data, setData] = useState('');
+    const [jackpot, setJackpot] = useState(0);
 
+    // Get the data from the API
     useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await fetch('/api')
-                const reiceved = await response.json()
-                setData(reiceved)
+                setData(await response.json())
             } catch (error) {
                 console.error('Error fetching data:', error)
             }
         }
-
         fetchData()
     }, [])
-    console.log(data.credits)
+
+    setInterval(() => {
+      setJackpot(jackpot+1)
+    }, 2000);
 
   return (
     <>
     <p> Casino web </p>
     <p> Credits: {data.credits} </p>
+    <p> Jackpot: {jackpot} </p>
     </>
   )
 }
